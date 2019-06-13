@@ -1,7 +1,7 @@
 
 exports.seed = function (knex, Promise) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('locker_links').del()
     .then(function () {
       // Inserts seed entries
       return knex('locker_links').insert([
