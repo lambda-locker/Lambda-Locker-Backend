@@ -4,7 +4,7 @@ exports.seed = function (knex, Promise) {
   return knex('table_name').del()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
+      return knex('locker_notes').insert([
         {
           note_date: '2019-06-13',
           note_title: 'My First Note Evarrrrr',
