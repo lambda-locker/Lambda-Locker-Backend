@@ -6,6 +6,7 @@ exports.up = function (knex, Promise) {
             tbl.increments()
 
             tbl.string('username', 128).unique().notNullable()
+            tbl.string('password', 128).notNullable()
             tbl.string('student_name', 128).notNullable()
             tbl.string('email', 128).unique().notNullable()
             tbl.string('cohort', 128).notNullable()
@@ -19,6 +20,7 @@ exports.up = function (knex, Promise) {
             tbl.date('note_date').notNullable()
             tbl.string('note_title', 256).unique().notNullable()
             tbl.text('note_text').notNullable()
+            tbl.text('link_to_repo')
             tbl.string('note_category').notNullable()
             tbl.boolean('is_private').notNullable()
 
@@ -33,6 +35,7 @@ exports.up = function (knex, Promise) {
             tbl.text('link').notNullable()
             tbl.text('link_description')
             tbl.text('link_category', 128).notNullable()
+            tbl.boolean('is_private').notNullable()
 
             tbl.integer('link_curator').unsigned().references('id').inTable('users').onDelete('RESTRICT').onUpdate('CASCADE')
         })
