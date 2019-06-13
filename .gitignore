@@ -61,4 +61,4 @@ typings/
 .next
 
 # VSCode folder
-.vscode/settings.json
+settings.json
