@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs')
 const Users = require('../locker_users/users_model.js')
 const { tokenMaker } = require('../auth/auth_middleware')
 
-router.post('/', async (req, res) => {
+router.post('/register', async (req, res) => {
     const { body } = req
 
     if (body && body.username && body.password && body.student_name && body.email && body.cohort && body.is_admin) {
