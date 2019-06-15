@@ -1,7 +1,7 @@
 
 exports.seed = function (knex, Promise) {
   // Deletes ALL existing entries
-  return knex('locker_notes').del()
+  return knex('locker_notes').truncate()
     .then(function () {
       // Inserts seed entries
       return knex('locker_notes').insert([
@@ -17,6 +17,24 @@ exports.seed = function (knex, Promise) {
         {
           note_date: '2019-06-13',
           note_title: 'My Second Note Evarrrrr',
+          note_text: 'Inconspicuous motes of rock and gas gathered by gravity from which we spring extraplanetary emerged into consciousness dream of the mind\'s eye? Dispassionate extraterrestrial observer hydrogen atoms not a sunrise but a galaxyrise hydrogen atoms with pretty stories for which there\'s little good evidence the ash of stellar alchemy. Vanquish the impossible citizens of distant epochs a mote of dust suspended in a sunbeam a mote of dust suspended in a sunbeam shores of the cosmic ocean vastness is bearable only through love and billions upon billions upon billions upon billions upon billions upon billions upon billions.',
+          link_to_repo: 'ehttps://github.com/blubrandi/Lambda-Locker',
+          note_category: 'Ah HA! Moments',
+          is_private: false,
+          note_author: 1
+        },
+        {
+          note_date: '2019-06-13',
+          note_title: 'THIRD',
+          note_text: 'Inconspicuous motes of rock and gas gathered by gravity from which we spring extraplanetary emerged into consciousness dream of the mind\'s eye? Dispassionate extraterrestrial observer hydrogen atoms not a sunrise but a galaxyrise hydrogen atoms with pretty stories for which there\'s little good evidence the ash of stellar alchemy. Vanquish the impossible citizens of distant epochs a mote of dust suspended in a sunbeam a mote of dust suspended in a sunbeam shores of the cosmic ocean vastness is bearable only through love and billions upon billions upon billions upon billions upon billions upon billions upon billions.',
+          link_to_repo: 'ehttps://github.com/blubrandi/Lambda-Locker',
+          note_category: 'Ah HA! Moments',
+          is_private: false,
+          note_author: 1
+        },
+        {
+          note_date: '2019-06-13',
+          note_title: 'FOURTH',
           note_text: 'Inconspicuous motes of rock and gas gathered by gravity from which we spring extraplanetary emerged into consciousness dream of the mind\'s eye? Dispassionate extraterrestrial observer hydrogen atoms not a sunrise but a galaxyrise hydrogen atoms with pretty stories for which there\'s little good evidence the ash of stellar alchemy. Vanquish the impossible citizens of distant epochs a mote of dust suspended in a sunbeam a mote of dust suspended in a sunbeam shores of the cosmic ocean vastness is bearable only through love and billions upon billions upon billions upon billions upon billions upon billions upon billions.',
           link_to_repo: 'ehttps://github.com/blubrandi/Lambda-Locker',
           note_category: 'Ah HA! Moments',

@@ -1,7 +1,7 @@
 
 exports.seed = function (knex, Promise) {
   // Deletes ALL existing entries
-  return knex('locker_links').del()
+  return knex('locker_links').truncate()
     .then(function () {
       // Inserts seed entries
       return knex('locker_links').insert([
@@ -14,7 +14,55 @@ exports.seed = function (knex, Promise) {
           link_curator: 1
         },
         {
-          link_title: 'React Dropzone on Github',
+          link_title: 'tittle 001',
+          link: 'https://github.com/react-dropzone/react-dropzone',
+          link_description: 'Drag and drop React file uploader',
+          link_category: 'React',
+          is_private: false,
+          link_curator: 2
+        },
+        {
+          link_title: 'title 002',
+          link: 'https://github.com/react-dropzone/react-dropzone',
+          link_description: 'Drag and drop React file uploader',
+          link_category: 'React',
+          is_private: false,
+          link_curator: 2
+        },
+        {
+          link_title: 'title 003',
+          link: 'https://github.com/react-dropzone/react-dropzone',
+          link_description: 'Drag and drop React file uploader',
+          link_category: 'React',
+          is_private: false,
+          link_curator: 2
+        },
+        {
+          link_title: 'title 004',
+          link: 'https://github.com/react-dropzone/react-dropzone',
+          link_description: 'Drag and drop React file uploader',
+          link_category: 'React',
+          is_private: false,
+          link_curator: 2
+        },
+        {
+          link_title: 'title 005',
+          link: 'https://github.com/react-dropzone/react-dropzone',
+          link_description: 'Drag and drop React file uploader',
+          link_category: 'React',
+          is_private: false,
+          link_curator: 2
+        },
+        {
+          link_title: 'title 006',
+          link: 'https://github.com/react-dropzone/react-dropzone',
+          link_description: 'Drag and drop React file uploader',
+          link_category: 'React',
+          is_private: false,
+          link_curator: 2
+        },
+        {
+          link_title: 'title 007',
           link: 'https://github.com/react-dropzone/react-dropzone',
           link_description: 'Drag and drop React file uploader',
           link_category: 'React',
