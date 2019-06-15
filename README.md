@@ -80,8 +80,8 @@ GET | `/links` | None | Returns all links from the `links` database
 
 ## Contributors:
 
-Brandi Bailey
-https://github.com/orgs/lambda-locker/people/blubrandi
+### Brandi Bailey: [GitHub Account](https://github.com/blubrandi)
 
-Christian Ipanaque
-https://github.com/chrisipanaque
+### Christian Ipanaque: [GitHub Account](https://github.com/chrisipanaque)
+
+### William Umstead: [GitHub Account](https://github.com/brellin)
