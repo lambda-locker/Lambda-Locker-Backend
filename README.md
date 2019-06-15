@@ -2,6 +2,11 @@
 
 ## Endpoints
 
+### Auth
+Method | Endpoint | Required Fields | Description
+-------|----------|-----------------|------------
+POST | `/auth/register` | { username, password, student_name, email, cohort, is_admin } | Inputs a user to the `users` database and returns the user's object
+
 ### Users
 Method | Endpoint | Required Fields | Description
 -------|----------|-----------------|------------

@@ -1,9 +1,9 @@
 const router = require('express').Router()
 
 const Users = require('../locker_users/users_model.js')
-// const restricted = require('../auth/restricted.js')
+const { restricted, tokenMaker } = require('../auth/auth_middleware')
 
-router.get('/', (req, res) => {
+router.get('/', restricted, (req, res) => {
     Users.find()
         .then(users => {
             res.json(users);
@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
         .catch(err => res.send(err));
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', restricted, (req, res) => {
     Users.findById(req.params.id)
         .then(users => {
             res.json(users);
@@ -19,7 +19,7 @@ router.get('/:id', (req, res) => {
         .catch(err => res.send(err))
 })
 
-router.put('/:id', (req, res) => {
+router.put('/:id', restricted, (req, res) => {
     const { id } = req.params
     const { password, username, studentname, email } = req.body
     Users.update(id, { password, username, studentname, email })
@@ -31,7 +31,7 @@ router.put('/:id', (req, res) => {
         });
 })
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', restricted, (req, res) => {
     Users.remove(req.params.id)
         .then(user => {
             res.status(200).json({ message: 'User has been deleted' })

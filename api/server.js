@@ -3,6 +3,7 @@ const express = require('express')
 const cors = require('cors')
 const helmet = require('helmet')
 
+const authRouter = require('../auth/auth_router')
 const usersRouter = require('../locker_users/users_router.js')
 const notesRouter = require('../locker_notes/notes_router.js')
 const linksRouter = require('../locker_links/links_router.js')
@@ -18,6 +19,7 @@ server.get('/', (req, res) => {
     )
 })
 
+server.use('/auth', authRouter)
 server.use('/users', usersRouter)
 server.use('/notes', notesRouter)
 server.use('/links', linksRouter)
