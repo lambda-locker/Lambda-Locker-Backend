@@ -10,11 +10,6 @@ module.exports = {
 };
 
 async function find() {
-  // for (i = 0; i < users.length; i++) {
-  //             users[i].notes = await notesById(users[i].business_requesting)
-  //             users[i].volunteer_assigned = await Users.findVolunteerByID(users[i].volunteer_assigned)
-  //             requests.push(r)
-  //         }
   const users = await db('users');
 
   for (let user of users) {
@@ -65,6 +60,7 @@ function remove(id) {
     .del();
 }
 
+// PAST ATTEMPTS:
 // const getStudentProfile = async studentId => {
 //     const locker_notes = await database('locker_notes')
 //         .where({ id: studentId })
@@ -125,3 +121,11 @@ function remove(id) {
 // .groupBy('users.id');
 
 //   return users;
+
+// NON-WORKING CODE:
+
+// for (i = 0; i < users.length; i++) {
+//             users[i].notes = await notesById(users[i].business_requesting)
+//             users[i].volunteer_assigned = await Users.findVolunteerByID(users[i].volunteer_assigned)
+//             requests.push(r)
+//         }
