@@ -4,6 +4,7 @@ const cors = require('cors')
 const helmet = require('helmet')
 
 const usersRouter = require('../locker_users/users_router.js')
+const notesRouter = require('../locker_notes/notes_router.js')
 
 const server = express()
 server.use(cors())
@@ -17,5 +18,6 @@ server.get('/', (req, res) => {
 })
 
 server.use('/users', usersRouter)
+server.use('/notes', notesRouter)
 
 module.exports = server
