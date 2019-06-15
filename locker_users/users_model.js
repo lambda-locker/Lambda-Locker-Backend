@@ -6,18 +6,38 @@ module.exports = {
     remove,
     find,
     findBy,
-    findById,
+    findById
 };
 
 function find() {
-    return db('users').select('id', 'username', 'password', 'student_name', 'cohort', 'is_admin');
+    const getStudentProfile = async studentId => {
+        const locker_notes = await database('locker_notes')
+            .where({ id: studentId })
+            .first()
+
+        const locker_links = await database('locker_links')
+            .where({ id: studentId })
+            .first()
+
+        return {
+            student: {
+                id: studentId,
+                locker_notes,
+                locker_links
+            }
+        }
+    }
+
 }
+
+
 
 function findBy(filter) {
     return db('users').where(filter);
 }
 
 function findById(id) {
+
     return db('users')
         .where({ id })
         .first();
