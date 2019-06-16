@@ -31,10 +31,8 @@ router.post('/register', async (req, res) => {
                 res.status(200).json(user)
 
             } else {
-                res.status(200).json({
-                    ...check,
-                    notes: check.notes ? check.notes : [],
-                    links: check.links ? check.links : []
+                res.status(400).json({
+                    error: 'User already exists.'
                 })
             }
 
