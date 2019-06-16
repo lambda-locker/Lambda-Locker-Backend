@@ -25,7 +25,7 @@ module.exports = {
         const payload = {
             track: user.track,
             user_id: user.id,
-            isAdmin: user.isAdmin,
+            is_admin: user.isAdmin,
             cohort: user.cohort
         }
 

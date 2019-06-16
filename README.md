@@ -5,7 +5,18 @@
 ### Auth
 Method | Endpoint | Required Fields | Description
 -------|----------|-----------------|------------
-POST | `/auth/register` | { username, password, student_name, email, cohort, is_admin } | Inputs a user to the `users` database and returns the user's object. If username already exists, returns an error.
+POST | `/auth/register` | { username, password, student_name, email, cohort, is_admin } | Inputs a user to the `users` database and returns the auth object for the user. If username already exists, returns an error.
+POST | `/auth/login` | { username, password } | Checks if user exists and if passwords match. If both cases are true, returns the auth object for the user.
+#### Auth object shape
+```
+{
+  "message": string containing welcome message,
+  "id": integer containing user's id,
+  "cohort": string,
+  "is_admin": boolean,
+  "token": string containing token
+}
+```
 
 ### Users
 Method | Endpoint | Required Fields | Description

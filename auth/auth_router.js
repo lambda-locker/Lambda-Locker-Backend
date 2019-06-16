@@ -28,7 +28,14 @@ router.post('/register', async (req, res) => {
 
                 const token = tokenMaker(user)
 
-                res.status(200).json(user)
+                res.status(200).json({
+                    message: `Welcome, ${username}!`,
+                    id: user.id,
+                    track: user.track,
+                    cohort: user.cohort,
+                    is_admin: user.is_admin,
+                    token
+                })
 
             } else {
                 res.status(400).json({
@@ -53,6 +60,68 @@ router.post('/register', async (req, res) => {
             error: 'You must include a username, password, student_name, email, cohort, and is_admin in your request.'
         })
     }
+})
+
+router.post('/login', async (req, res) => {
+
+    let { username, password } = req.body
+
+    if (username && password) {
+
+        try {
+
+            const user = await Users.findBy(username)
+
+            if (user) {
+
+                if (bcrypt.compareSync(password, user.password)) {
+
+                    const token = tokenMaker(user)
+
+                    res.status(200).json({
+                        message: `Welcome, ${username}!`,
+                        id: user.id,
+                        track: user.track,
+                        cohort: user.cohort,
+                        is_admin: user.is_admin,
+                        token
+                    })
+
+                } else {
+
+                    res.status(400).json({
+                        error: `Password does not match ${username}'s password. Please try again.`
+                    })
+
+                }
+
+            } else {
+
+                res.status(400).json({
+                    error: `Username '${username}' does not exist. Please try again.`
+                })
+
+            }
+
+
+        } catch (err) {
+
+            console.log(err)
+
+            res.status(500).json({
+                error: 'Internal Server Error.'
+            })
+
+        }
+
+    } else {
+
+        res.status(400).json({
+            error: 'You must include a username and password. Please try again.'
+        })
+
+    }
+
 })
 
 module.exports = router
