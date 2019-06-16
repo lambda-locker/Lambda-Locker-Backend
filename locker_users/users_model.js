@@ -22,8 +22,8 @@ async function find() {
   return users;
 }
 
-function findBy(filter) {
-  return db('users').where(filter);
+function findBy(username) {
+  return db('users').where({ username }).first();
 }
 
 async function findById(id) {

@@ -5,23 +5,39 @@ const Users = require('../locker_users/users_model.js')
 const { tokenMaker } = require('../auth/auth_middleware')
 
 router.post('/register', async (req, res) => {
-    const { body } = req
+
+    let { body } = req
 
     if (body && body.username && body.password && body.student_name && body.email && body.cohort && body.is_admin) {
+
+        const { username } = body
 
         body.password = bcrypt.hashSync(body.password, 10)
 
         try {
 
-            const post = await Users.add(body)
+            const check = await Users.findBy(username)
 
-            console.log(post)
+            if (!check) {
 
-            const user = await Users.findById(post.id)
+                const post = await Users.add(body)
 
-            const token = tokenMaker(user)
+                console.log(post)
 
-            res.status(200).json(user)
+                const user = await Users.findById(post.id)
+
+                const token = tokenMaker(user)
+
+                res.status(200).json(user)
+
+            } else {
+                res.status(200).json({
+                    ...check,
+                    notes: check.notes ? check.notes : [],
+                    links: check.links ? check.links : []
+                })
+            }
+
 
         } catch (err) {
 
