@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const Notes = require('../locker_notes/notes_model.js')
+const Notes = require('./notes_model')
 
 router.get('/', (req, res) => {
     Notes.find()

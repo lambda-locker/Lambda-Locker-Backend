@@ -23,6 +23,8 @@ exports.up = function (knex, Promise) {
             tbl.text('link_to_repo')
             tbl.string('note_category').notNullable()
             tbl.boolean('is_private').notNullable()
+            tbl.integer('upvotes')
+            tbl.text('comments')
 
             tbl.integer('note_author').unsigned().references('id').inTable('users').onDelete('RESTRICT').onUpdate('CASCADE')
 
@@ -36,6 +38,8 @@ exports.up = function (knex, Promise) {
             tbl.text('link_description')
             tbl.text('link_category', 128).notNullable()
             tbl.boolean('is_private').notNullable()
+            tbl.integer('upvotes')
+            tbl.text('comments')
 
             tbl.integer('link_curator').unsigned().references('id').inTable('users').onDelete('RESTRICT').onUpdate('CASCADE')
         })
@@ -44,7 +48,7 @@ exports.up = function (knex, Promise) {
 
 exports.down = function (knex, Promise) {
     return knex.schema
-        .dropTableOfExists('users')
-        .dropTableOfExists('locker_notes')
-        .dropTableOfExists('locker_links')
+        .dropTableIfExists('users')
+        .dropTableIfExists('locker_notes')
+        .dropTableIfExists('locker_links')
 };

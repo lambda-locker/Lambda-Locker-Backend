@@ -1,4 +1,5 @@
 const db = require('../data/dbConfig.js');
+const { stringify, parse } = require('../utility/index')
 
 module.exports = {
   add,
@@ -14,8 +15,8 @@ async function find() {
 
   for (let user of users) {
     user.resources = {
-      notes: await db('locker_notes').where({ note_author: user.id }),
-      links: await db('locker_links').where({ link_curator: user.id })
+      notes: parse(await db('locker_notes').where({ note_author: user.id })),
+      links: parse(await db('locker_links').where({ link_curator: user.id }))
     };
   }
 
@@ -37,8 +38,8 @@ async function findById(id) {
 
   return {
     ...user,
-    notes,
-    links
+    notes: parse(notes),
+    links: parse(links)
   };
 }
 
@@ -49,6 +50,8 @@ async function add(user) {
 }
 
 function update(id, changes) {
+  stringify(changes)
+
   return db('users')
     .where({ id })
     .update(changes);
