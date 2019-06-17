@@ -41,7 +41,9 @@ DELETE | `users/:id` | None | Will delete a user if exists
           "id": integer,
           "note_date": string,
           "note_title": string,
-          "note_text": string
+          "note_text": string,
+          "upvotes": integer,
+          "comments": []
         },
       ],
       "links": [
@@ -73,7 +75,9 @@ GET | `/notes` | None | Returns all notes from the `notes` database
     "link_to_repo": string,
     "note_category": string,
     "is_private": boolean,
-    "note_author": integer matching user id
+    "note_author": integer matching user id,
+          "upvotes": integer,
+          "comments": []
   }
 ```
 
@@ -90,7 +94,9 @@ GET | `/links` | None | Returns all links from the `links` database
     "link_description": string,
     "link_category": string,
     "is_private": boolean,
-    "link_curator": integer matching user id
+    "link_curator": integer matching user id,
+          "upvotes": integer,
+          "comments": []
 }
 ```
 

@@ -1,10 +1,14 @@
 const db = require('../data/dbConfig.js')
-const { stringify, parse } = require('../utility')
+const { stringify, parse, boolRes } = require('../utility')
 
 module.exports = {
 
     find: () => {
-        return db('locker_notes').select('id', 'note_date', 'note_title', 'note_text', 'link_to_repo', 'note_category', 'is_private', 'note_author').map(note => parse(note))
+        return db('locker_notes').map(note => {
+            note = parse(note)
+            note = boolRes(note)
+            return note
+        })
     },
 
     findBy: filter => {

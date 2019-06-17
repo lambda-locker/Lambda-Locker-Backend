@@ -11,7 +11,9 @@ exports.seed = function (knex, Promise) {
           link_description: 'A cheatsheet for common Knex code snippets and query builders',
           link_category: 'knex',
           is_private: false,
-          link_curator: 1
+          link_curator: 1,
+          upvotes: 0,
+          comments: []
         },
         {
           link_title: 'tittle 001',
@@ -19,7 +21,9 @@ exports.seed = function (knex, Promise) {
           link_description: 'Drag and drop React file uploader',
           link_category: 'React',
           is_private: false,
-          link_curator: 2
+          link_curator: 2,
+          upvotes: 0,
+          comments: []
         },
         {
           link_title: 'title 002',
@@ -27,7 +31,9 @@ exports.seed = function (knex, Promise) {
           link_description: 'Drag and drop React file uploader',
           link_category: 'React',
           is_private: false,
-          link_curator: 2
+          link_curator: 2,
+          upvotes: 0,
+          comments: []
         },
         {
           link_title: 'title 003',
@@ -35,7 +41,9 @@ exports.seed = function (knex, Promise) {
           link_description: 'Drag and drop React file uploader',
           link_category: 'React',
           is_private: false,
-          link_curator: 2
+          link_curator: 2,
+          upvotes: 0,
+          comments: []
         },
         {
           link_title: 'title 004',
@@ -43,7 +51,9 @@ exports.seed = function (knex, Promise) {
           link_description: 'Drag and drop React file uploader',
           link_category: 'React',
           is_private: false,
-          link_curator: 2
+          link_curator: 2,
+          upvotes: 0,
+          comments: []
         },
         {
           link_title: 'title 005',
@@ -51,7 +61,9 @@ exports.seed = function (knex, Promise) {
           link_description: 'Drag and drop React file uploader',
           link_category: 'React',
           is_private: false,
-          link_curator: 2
+          link_curator: 2,
+          upvotes: 0,
+          comments: []
         },
         {
           link_title: 'title 006',
@@ -59,7 +71,9 @@ exports.seed = function (knex, Promise) {
           link_description: 'Drag and drop React file uploader',
           link_category: 'React',
           is_private: false,
-          link_curator: 2
+          link_curator: 2,
+          upvotes: 0,
+          comments: []
         },
         {
           link_title: 'title 007',
@@ -67,7 +81,9 @@ exports.seed = function (knex, Promise) {
           link_description: 'Drag and drop React file uploader',
           link_category: 'React',
           is_private: false,
-          link_curator: 2
+          link_curator: 2,
+          upvotes: 0,
+          comments: []
         },
       ]);
     });

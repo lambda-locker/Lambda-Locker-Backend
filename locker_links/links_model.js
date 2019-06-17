@@ -1,14 +1,20 @@
 const db = require('../data/dbConfig.js')
+const { parse, boolRes } = require('../utility')
 
 module.exports = {
-    find,
-    findBy
-}
+    find: () => {
 
-function find() {
-    return db('locker_links').select('id', 'link_title', 'link', 'link_description', 'link_category', 'is_private', 'link_curator')
-}
+        return db('locker_links').map(link => {
+            link = boolRes(link)
+            link = parse(link)
+            return link
+        })
 
-function findBy(filter) {
-    return db('locker_links').where(filter);
+    },
+
+    findBy: filter => {
+
+        return parse(db('locker_links').where(filter).first());
+
+    }
 }

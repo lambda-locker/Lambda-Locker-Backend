@@ -1,5 +1,5 @@
 const db = require('../data/dbConfig.js');
-const { stringify, parse } = require('../utility/index')
+const { stringify, parse, boolUse, boolRes } = require('../utility')
 
 module.exports = {
   add,
@@ -15,12 +15,15 @@ async function find() {
 
   for (let user of users) {
     user.resources = {
-      notes: parse(await db('locker_notes').where({ note_author: user.id })),
-      links: parse(await db('locker_links').where({ link_curator: user.id }))
+      notes: await db('locker_notes').where({ note_author: user.id }),
+      links: await db('locker_links').where({ link_curator: user.id })
     };
   }
 
-  return users;
+  return await users.map(user => {
+    user.resources.notes = user.resources.notes.map(note => parse(note)).map(note => boolRes(note))
+    return boolUse(user)
+  });
 }
 
 function findBy(username) {
